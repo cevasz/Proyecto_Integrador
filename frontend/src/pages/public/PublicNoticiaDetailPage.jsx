@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { getPublicNoticiaBySlug } from '../../services/publicService';
+import { getNewsImage } from '../../utils/newsImages';
 
 export default function PublicNoticiaDetailPage() {
   const { paisSlug, noticiaSlug } = useParams();
@@ -37,6 +38,9 @@ export default function PublicNoticiaDetailPage() {
     if (!slug) return '';
     return slug.charAt(0).toUpperCase() + slug.slice(1);
   }
+
+  const localImage = noticia ? getNewsImage(noticia.slug) : '';
+  const displayImage = localImage || noticia?.imagen_principal_url;
 
   if (loading) {
     return (
@@ -85,6 +89,12 @@ export default function PublicNoticiaDetailPage() {
 
           <h1>{noticia.titulo}</h1>
 
+          {noticia.resumen && (
+            <p className="public-detail-lead">
+              {noticia.resumen}
+            </p>
+          )}
+
           <div className="public-detail-meta">
             <span>
               <i className="bi bi-calendar3 me-2" />
@@ -106,26 +116,28 @@ export default function PublicNoticiaDetailPage() {
                 {noticia.autor.nombre} {noticia.autor.apellido}
               </span>
             )}
+
+            <span>
+              <i className="bi bi-clock me-2" />
+              {Math.max(1, Math.ceil((noticia.contenido?.length || 0) / 900))}{' '}
+              min de lectura
+            </span>
           </div>
         </div>
       </section>
 
       <section className="container public-detail-content">
-        {noticia.imagen_principal_url && (
+        {displayImage && (
           <div className="public-detail-image">
-            <img src={noticia.imagen_principal_url} alt={noticia.titulo} />
+            <img src={displayImage} alt={noticia.titulo} />
           </div>
         )}
 
         <div className="public-detail-body">
-          <div className="public-detail-summary">
-            <h2>Resumen</h2>
-            <p>{noticia.resumen}</p>
-          </div>
-
           <div className="public-detail-text">
-            <h2>Contenido</h2>
+            <h2>Informe</h2>
             <div
+              className="public-detail-richtext"
               dangerouslySetInnerHTML={{
                 __html: noticia.contenido.replace(/\n/g, '<br />')
               }}

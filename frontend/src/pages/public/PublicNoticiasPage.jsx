@@ -128,7 +128,7 @@ export default function PublicNoticiasPage() {
                 const localImage = getNewsImage(noticia.slug);
                 
                 return (
-                <article key={noticia.id} className="public-news-card">
+                <article key={noticia.id} className="public-news-card group">
                   <div className="public-news-image">
                     {localImage || noticia.imagen_principal_url ? (
                       <img

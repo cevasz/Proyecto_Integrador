@@ -4,7 +4,6 @@ import { supabaseAdmin } from '../config/supabase.js';
 dotenv.config();
 
 async function createSampleNews() {
-  // Obtener países
   const { data: paises, error: paisError } = await supabaseAdmin
     .from('paises')
     .select('id, nombre, slug');
@@ -14,7 +13,6 @@ async function createSampleNews() {
     return;
   }
 
-  // Obtener superadmin
   const { data: usuarios, error: userError } = await supabaseAdmin
     .from('usuarios')
     .select('id')
@@ -28,197 +26,197 @@ async function createSampleNews() {
 
   const autorId = usuarios[0].id;
 
-  // Noticias de ejemplo para cada país
   const noticiasEjemplo = [
-    // Ecuador
     {
-      titulo: 'Latinoamérica Comparte llega a Ecuador con proyectos de impacto social',
+      titulo: 'Latinoamérica Comparte consolida su llegada a Ecuador con agenda de impacto social',
       slug: 'latinoamerica-comparte-llega-ecuador',
-      resumen: 'Iniciamos operaciones en Ecuador con programas enfocados en educación, emprendimiento y desarrollo comunitario.',
-      imagen: 'ecuador-educacion.jpg',
-      contenido: `<h2>Un nuevo capítulo en Ecuador</h2>
-<p>Nos complace anunciar el inicio de nuestras operaciones en Ecuador, donde trabajaremos de la mano con comunidades locales para impulsar proyectos de alto impacto social.</p>
+      resumen: 'La organización inició operaciones en Ecuador con una hoja de ruta centrada en educación, fortalecimiento productivo y desarrollo territorial sostenible.',
+      contenido: `<h2>Inicio de operaciones con enfoque territorial</h2>
+<p>Latinoamérica Comparte inició su operación en Ecuador con un plan de trabajo orientado a generar impacto medible en comunidades urbanas y rurales. La estrategia integra actores públicos, sector privado y organizaciones locales para acelerar resultados en inclusión y productividad.</p>
 
-<h3>Áreas de enfoque</h3>
+<h3>Ejes de trabajo priorizados</h3>
 <ul>
-<li><strong>Educación:</strong> Programas de capacitación y formación para jóvenes</li>
-<li><strong>Emprendimiento:</strong> Apoyo a pequeños negocios y microempresas</li>
-<li><strong>Desarrollo comunitario:</strong> Proyectos de infraestructura y servicios básicos</li>
+<li><strong>Educación y empleabilidad:</strong> formación técnica para jóvenes y vinculación con oportunidades de inserción laboral.</li>
+<li><strong>Emprendimiento:</strong> acompañamiento a micro y pequeñas empresas con asistencia técnica y herramientas de gestión.</li>
+<li><strong>Desarrollo comunitario:</strong> proyectos para mejorar capacidades locales, articulación institucional y bienestar social.</li>
 </ul>
 
-<h3>Alianzas estratégicas</h3>
-<p>Hemos establecido alianzas con organizaciones locales, universidades y el sector privado para maximizar el impacto de nuestras iniciativas.</p>
+<h3>Modelo de implementación</h3>
+<p>El despliegue se ejecutará por fases, con indicadores de resultado y seguimiento trimestral. Las alianzas con universidades y organizaciones de base permitirán escalar las intervenciones en los próximos meses.</p>
 
-<p>Invitamos a toda la comunidad ecuatoriana a ser parte de este movimiento que busca construir una región más humana, productiva y consciente.</p>`,
+<p>Con esta expansión, la organización fortalece su presencia regional y reafirma su compromiso con un desarrollo más inclusivo, sostenible y colaborativo.</p>`,
       pais_slug: 'ecuador',
       estado: 'publicado',
-      destacado: true,
       autor_id: autorId
     },
     {
-      titulo: 'Programa de becas educativas beneficia a 200 estudiantes ecuatorianos',
+      titulo: 'Programa de becas en Ecuador impulsa continuidad académica de 200 jóvenes',
       slug: 'programa-becas-educativas-ecuador',
-      resumen: 'Nuestro programa de becas ha permitido que 200 jóvenes ecuatorianos accedan a educación de calidad.',
-      imagen: 'ecuador-becas.jpg',
-      contenido: `<h2>Transformando vidas a través de la educación</h2>
-<p>El programa de becas educativas de Latinoamérica Comparte ha beneficiado a 200 estudiantes ecuatorianos durante este año, brindándoles acceso a educación de calidad y oportunidades de desarrollo.</p>
+      resumen: 'La iniciativa de becas reporta mejoras en permanencia estudiantil y desempeño académico, ampliando el acceso a trayectorias educativas de calidad.',
+      contenido: `<h2>Resultados del programa durante el último ciclo</h2>
+<p>El programa de becas educativas en Ecuador benefició a 200 estudiantes en niveles técnico y universitario. El esquema de apoyo combina financiamiento parcial, acompañamiento académico y seguimiento psicosocial para reducir la deserción.</p>
 
-<h3>Resultados destacados</h3>
+<h3>Indicadores clave</h3>
 <ul>
-<li>200 becas otorgadas en diferentes niveles educativos</li>
-<li>85% de tasa de retención escolar</li>
-<li>Mejora promedio del 30% en el rendimiento académico</li>
+<li>200 becas activas en distintas provincias del país.</li>
+<li>85% de permanencia estudiantil durante el periodo evaluado.</li>
+<li>Mejora promedio del 30% en indicadores de rendimiento.</li>
 </ul>
 
-<h3>Testimonios</h3>
-<p>"Gracias a esta beca pude continuar mis estudios universitarios y ahora estoy a punto de graduarme como ingeniera. Este programa cambió mi vida." - María González, becaria 2025</p>`,
+<h3>Valor agregado del modelo</h3>
+<p>Además del soporte económico, el programa incorpora mentorías y orientación vocacional para fortalecer la toma de decisiones académicas y profesionales. Este enfoque integral mejora la transición al empleo formal y la continuidad en estudios superiores.</p>
+
+<p>La organización proyecta ampliar cupos y cobertura territorial para el próximo año, priorizando poblaciones con mayor vulnerabilidad socioeconómica.</p>`,
       pais_slug: 'ecuador',
       estado: 'publicado',
-      destacado: false,
       autor_id: autorId
     },
-    // Argentina
     {
-      titulo: 'Red de emprendedores argentinos crece con apoyo de Latinoamérica Comparte',
+      titulo: 'Red de emprendedores en Argentina supera los 150 miembros activos',
       slug: 'red-emprendedores-argentina',
-      resumen: 'Más de 150 emprendedores argentinos se han unido a nuestra red de apoyo mutuo y desarrollo empresarial.',
-      imagen: 'argentina-emprendedores.jpg',
-      contenido: `<h2>Fortaleciendo el ecosistema emprendedor</h2>
-<p>La red de emprendedores de Latinoamérica Comparte en Argentina ha crecido significativamente, alcanzando más de 150 miembros activos que colaboran, aprenden y crecen juntos.</p>
+      resumen: 'La red colaborativa consolida servicios de mentoría, formación y conexión comercial para fortalecer el crecimiento de emprendimientos locales.',
+      contenido: `<h2>Expansión del ecosistema emprendedor</h2>
+<p>La red de emprendedores impulsada por Latinoamérica Comparte en Argentina alcanzó más de 150 miembros activos. El crecimiento refleja una mayor demanda por espacios de formación aplicada, cooperación empresarial y acceso a mercados.</p>
 
-<h3>Servicios de la red</h3>
+<h3>Servicios implementados</h3>
 <ul>
-<li>Mentorías con empresarios exitosos</li>
-<li>Talleres de capacitación en gestión empresarial</li>
-<li>Acceso a financiamiento y capital semilla</li>
-<li>Networking y oportunidades de negocio</li>
+<li>Mentorías especializadas en estrategia, finanzas y comercialización.</li>
+<li>Capacitaciones en gestión operativa y escalamiento de negocios.</li>
+<li>Conexión con oportunidades de financiamiento y capital semilla.</li>
+<li>Rondas de networking para alianzas entre emprendimientos.</li>
 </ul>
 
-<h3>Casos de éxito</h3>
-<p>Varios emprendimientos de la red han logrado escalar sus operaciones y generar empleo en sus comunidades, demostrando el poder de la colaboración y el apoyo mutuo.</p>`,
+<h3>Impacto observado</h3>
+<p>Los emprendimientos vinculados a la red reportan avances en formalización, aumento de ventas y generación de empleo local. La metodología colaborativa permite compartir conocimiento práctico y reducir brechas de gestión.</p>
+
+<p>Para el siguiente semestre se prevé ampliar la red a nuevas ciudades y robustecer la oferta de servicios para industrias creativas y economía verde.</p>`,
       pais_slug: 'argentina',
       estado: 'publicado',
-      destacado: true,
       autor_id: autorId
     },
     {
-      titulo: 'Proyecto de agricultura sostenible transforma comunidades rurales argentinas',
+      titulo: 'Agricultura sostenible en Argentina mejora productividad de familias rurales',
       slug: 'agricultura-sostenible-argentina',
-      resumen: 'Implementamos técnicas de agricultura sostenible que han mejorado la productividad y los ingresos de familias rurales.',
-      imagen: 'argentina-agricultura.jpg',
-      contenido: `<h2>Innovación en el campo argentino</h2>
-<p>Nuestro proyecto de agricultura sostenible ha transformado la vida de más de 80 familias rurales en Argentina, implementando técnicas modernas que respetan el medio ambiente y aumentan la productividad.</p>
+      resumen: 'El proyecto integra prácticas regenerativas, eficiencia hídrica y comercialización directa, con mejoras sostenidas en ingresos y resiliencia productiva.',
+      contenido: `<h2>Transformación productiva con enfoque sostenible</h2>
+<p>El programa de agricultura sostenible en Argentina acompañó a más de 80 familias rurales en la adopción de prácticas que mejoran la productividad y reducen el impacto ambiental. El trabajo combina asistencia técnica, transferencia de tecnología y articulación comercial.</p>
 
-<h3>Técnicas implementadas</h3>
+<h3>Prácticas implementadas</h3>
 <ul>
-<li>Sistemas de riego eficiente</li>
-<li>Rotación de cultivos y agricultura regenerativa</li>
-<li>Control biológico de plagas</li>
-<li>Comercialización directa y valor agregado</li>
+<li>Sistemas de riego eficiente para optimizar uso de agua.</li>
+<li>Rotación de cultivos y manejo regenerativo del suelo.</li>
+<li>Control biológico para disminuir dependencia de agroquímicos.</li>
+<li>Canales de venta directa con mayor valor para productores.</li>
 </ul>
 
-<h3>Impacto económico</h3>
-<p>Las familias participantes han reportado un aumento promedio del 40% en sus ingresos, mientras reducen el uso de agroquímicos y mejoran la salud del suelo.</p>`,
+<h3>Resultados económicos y ambientales</h3>
+<p>Las unidades productivas participantes reportaron incrementos promedio del 40% en ingresos, junto con mejoras en salud del suelo y reducción de costos operativos. El modelo fortalece la sostenibilidad financiera de las familias y la resiliencia frente a variaciones climáticas.</p>
+
+<p>La siguiente fase contemplará ampliación de cobertura y fortalecimiento de cadenas de valor territoriales.</p>`,
       pais_slug: 'argentina',
       estado: 'publicado',
-      destacado: false,
       autor_id: autorId
     },
-    // Chile
     {
-      titulo: 'Programa de inclusión digital capacita a adultos mayores en Chile',
+      titulo: 'Inclusión digital en Chile fortalece autonomía de personas mayores',
       slug: 'inclusion-digital-adultos-mayores-chile',
-      resumen: 'Más de 300 adultos mayores chilenos han aprendido a usar tecnología digital para conectarse con sus familias y acceder a servicios.',
-      imagen: 'chile-digital.jpg',
-      contenido: `<h2>Cerrando la brecha digital generacional</h2>
-<p>Nuestro programa de inclusión digital en Chile ha capacitado a más de 300 adultos mayores en el uso de tecnologías digitales, permitiéndoles conectarse con sus seres queridos y acceder a servicios esenciales.</p>
+      resumen: 'Más de 300 participantes completaron formación en herramientas digitales, facilitando acceso a servicios, comunicación y trámites en línea.',
+      contenido: `<h2>Reducción de brechas digitales intergeneracionales</h2>
+<p>El programa de inclusión digital en Chile capacitó a más de 300 personas mayores en el uso práctico de tecnologías para la vida cotidiana. La iniciativa prioriza competencias digitales básicas con un enfoque pedagógico adaptado.</p>
 
-<h3>Contenidos del programa</h3>
+<h3>Contenidos formativos</h3>
 <ul>
-<li>Uso básico de smartphones y tablets</li>
-<li>Videollamadas y redes sociales</li>
-<li>Banca en línea y trámites digitales</li>
-<li>Seguridad y privacidad en internet</li>
+<li>Manejo de teléfonos inteligentes y aplicaciones esenciales.</li>
+<li>Comunicación digital segura mediante videollamadas y mensajería.</li>
+<li>Uso de servicios bancarios y trámites públicos en línea.</li>
+<li>Buenas prácticas de ciberseguridad y protección de datos.</li>
 </ul>
 
-<h3>Testimonios emotivos</h3>
-<p>"Ahora puedo ver a mis nietos que viven en el extranjero todos los días. La tecnología ya no me da miedo, me acerca a mi familia." - Rosa Martínez, 72 años</p>`,
+<h3>Beneficios observados</h3>
+<p>La formación incrementó la autonomía de los participantes para resolver gestiones diarias y mejorar su integración social. También se registró mayor confianza en el uso de canales digitales para atención en salud y servicios financieros.</p>
+
+<p>La organización proyecta replicar el modelo en nuevas comunas, incorporando módulos de alfabetización digital avanzada.</p>`,
       pais_slug: 'chile',
       estado: 'publicado',
-      destacado: true,
       autor_id: autorId
     },
     {
-      titulo: 'Iniciativa de reciclaje comunitario reduce residuos en barrios chilenos',
+      titulo: 'Reciclaje comunitario en Chile reduce residuos y activa economía circular local',
       slug: 'reciclaje-comunitario-chile',
-      resumen: 'Programa de reciclaje ha logrado reducir en 60% los residuos en comunidades participantes.',
-      imagen: 'chile-reciclaje.jpg',
-      contenido: `<h2>Comunidades más limpias y sostenibles</h2>
-<p>La iniciativa de reciclaje comunitario de Latinoamérica Comparte en Chile ha logrado resultados impresionantes, reduciendo en un 60% los residuos que llegan a vertederos en las comunidades participantes.</p>
+      resumen: 'El programa alcanzó una reducción de residuos del 60% en barrios participantes y consolidó prácticas de separación, compostaje y reutilización.',
+      contenido: `<h2>Gestión ambiental con participación ciudadana</h2>
+<p>La iniciativa de reciclaje comunitario en Chile reportó una reducción del 60% en residuos enviados a disposición final en los territorios intervenidos. El modelo combina infraestructura de reciclaje, educación ambiental y mecanismos de valorización de materiales.</p>
 
-<h3>Componentes del programa</h3>
+<h3>Componentes operativos</h3>
 <ul>
-<li>Puntos de reciclaje en barrios</li>
-<li>Educación ambiental para todas las edades</li>
-<li>Compostaje comunitario</li>
-<li>Economía circular y reutilización creativa</li>
+<li>Instalación de puntos limpios y rutas de recolección diferenciada.</li>
+<li>Talleres de educación ambiental para hogares y organizaciones.</li>
+<li>Compostaje comunitario para residuos orgánicos.</li>
+<li>Acciones de reutilización y economía circular barrial.</li>
 </ul>
 
-<h3>Impacto ambiental</h3>
-<p>Se han reciclado más de 50 toneladas de materiales en el último año, generando además ingresos para las comunidades a través de la venta de materiales reciclables.</p>`,
+<h3>Impacto del programa</h3>
+<p>Durante el último año se recuperaron más de 50 toneladas de materiales reciclables, con beneficios ambientales y sociales para las comunidades. La experiencia demuestra que la articulación local puede escalar soluciones sostenibles de forma eficiente.</p>
+
+<p>La siguiente etapa priorizará trazabilidad de residuos y fortalecimiento de capacidades de gestión comunitaria.</p>`,
       pais_slug: 'chile',
       estado: 'publicado',
-      destacado: false,
       autor_id: autorId
     }
   ];
 
-  console.log('🚀 Creando noticias de ejemplo...\n');
+  console.log('Iniciando sincronización de noticias...\n');
 
   for (const noticia of noticiasEjemplo) {
-    // Buscar el país
-    const pais = paises.find(p => p.slug === noticia.pais_slug);
-    
+    const pais = paises.find((p) => p.slug === noticia.pais_slug);
+
     if (!pais) {
-      console.log(`❌ País no encontrado: ${noticia.pais_slug}`);
+      console.log(`Pais no encontrado: ${noticia.pais_slug}`);
       continue;
     }
 
-    // Verificar si la noticia ya existe
-    const { data: existing } = await supabaseAdmin
+    const payload = {
+      titulo: noticia.titulo,
+      slug: noticia.slug,
+      resumen: noticia.resumen,
+      contenido: noticia.contenido,
+      pais_id: pais.id,
+      estado: noticia.estado,
+      autor_id: noticia.autor_id,
+      fecha_publicacion: new Date().toISOString()
+    };
+
+    const { data: existing, error: existingError } = await supabaseAdmin
       .from('noticias')
       .select('id')
       .eq('slug', noticia.slug)
       .limit(1);
 
-    if (existing && existing.length > 0) {
-      console.log(`⏭️  Noticia ya existe: ${noticia.titulo}`);
+    if (existingError) {
+      console.log(`Error verificando "${noticia.titulo}":`, existingError.message);
       continue;
     }
 
-    // Crear la noticia
-    const { error } = await supabaseAdmin
-      .from('noticias')
-      .insert([{
-        titulo: noticia.titulo,
-        slug: noticia.slug,
-        resumen: noticia.resumen,
-        contenido: noticia.contenido,
-        pais_id: pais.id,
-        estado: noticia.estado,
-        autor_id: noticia.autor_id,
-        fecha_publicacion: new Date().toISOString()
-      }]);
+    let error;
+    if (existing && existing.length > 0) {
+      ({ error } = await supabaseAdmin
+        .from('noticias')
+        .update(payload)
+        .eq('id', existing[0].id));
+    } else {
+      ({ error } = await supabaseAdmin
+        .from('noticias')
+        .insert(payload));
+    }
 
     if (error) {
-      console.log(`❌ Error creando noticia "${noticia.titulo}":`, error.message);
+      console.log(`Error sincronizando "${noticia.titulo}":`, error.message);
     } else {
-      console.log(`✅ Noticia creada: ${noticia.titulo} (${pais.nombre})`);
+      console.log(`OK: ${noticia.titulo} (${pais.nombre})`);
     }
   }
 
-  console.log('\n🎉 Proceso completado!');
-  console.log('📊 Total de noticias: 6 (2 por país)');
+  console.log('\nSincronizacion finalizada.');
 }
 
 createSampleNews();
