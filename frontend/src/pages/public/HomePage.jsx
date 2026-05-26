@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import argentinaLogo from '../../assets/cms/argentina-portada.jpeg';
-import chileLogo from '../../assets/cms/chile-portada.jpeg';
-import ecuadorLogo from '../../assets/cms/ecuador-portada.jpeg';
+import argentinaLogo from '../../assets/cms/argentina-icon.png';
+import chileLogo from '../../assets/cms/chile-icon.png';
+import ecuadorLogo from '../../assets/cms/ecuador-icon.png';
 import portalReference from '../../assets/cms/portal-regional-portada.jpeg';
 import BrandLogo from '../../components/BrandLogo';
 import InteractiveBackground from '../../components/InteractiveBackground';

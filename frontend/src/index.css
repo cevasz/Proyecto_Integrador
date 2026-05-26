@@ -220,10 +220,11 @@
   }
 
   .country-card:hover .country-logo-crop {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 
-      0 8px 20px rgba(0, 0, 0, 0.2),
-      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    transform: scale(1.08);
+  }
+
+  .country-card:hover .country-logo-crop img {
+    filter: drop-shadow(0 6px 12px rgba(135, 0, 127, 0.3));
   }
 
   .country-card strong {
@@ -236,39 +237,21 @@
   }
 
   .country-logo-crop {
-    @apply mb-3 grid h-[100px] w-[100px] place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50;
-    box-shadow: 
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      inset 0 1px 2px rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    @apply mb-3 grid h-[110px] w-[110px] place-items-center overflow-hidden rounded-2xl;
+    background: transparent;
+    box-shadow: none;
+    border: none;
   }
 
   .country-logo-crop img {
     @apply h-full w-full;
-    object-fit: cover;
-    object-position: center 30%;
-    transform: scale(2.2);
-    filter: brightness(1.05) contrast(1.1) saturate(1.15);
+    object-fit: contain;
+    object-position: center center;
+    transform: scale(1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   }
 
-  /* Ajustes específicos por país para mejor visualización */
-  .country-card:nth-child(1) .country-logo-crop img {
-    /* Ecuador */
-    object-position: center 35%;
-    transform: scale(2.3);
-  }
-
-  .country-card:nth-child(2) .country-logo-crop img {
-    /* Argentina */
-    object-position: center 28%;
-    transform: scale(2.1);
-  }
-
-  .country-card:nth-child(4) .country-logo-crop img {
-    /* Chile */
-    object-position: center 32%;
-    transform: scale(2.2);
-  }
+  /* Eliminar ajustes específicos ya que ahora son PNG transparentes */
 
   .country-main {
     @apply min-h-64 w-56 bg-gradient-to-br from-white via-sky-50 to-blue-50;
