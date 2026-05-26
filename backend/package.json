@@ -9,7 +9,8 @@
     "start": "node src/server.js",
     "create-superadmin": "node src/scripts/createSuperAdmin.js",
     "create-test-users": "node src/scripts/createTestUsers.js",
-    "create-sample-news": "node src/scripts/createSampleNews.js"
+    "create-sample-news": "node src/scripts/createSampleNews.js",
+    "test-connection": "node src/scripts/testConnection.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",
