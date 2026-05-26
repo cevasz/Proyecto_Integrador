@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import BrandLogo from '../../components/BrandLogo';
+import InteractiveBackground from '../../components/InteractiveBackground';
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -178,21 +179,23 @@ export default function LoginPage() {
   const isBlocked = blockedSeconds > 0;
 
   return (
-    <main className="login-page">
+    <main className="login-page-modern">
+      <InteractiveBackground />
+      
       {toast.show && (
         <div
           className="position-fixed top-0 end-0 p-3"
           style={{
-            zIndex: 9999,
+            zIndex: 10000,
             minWidth: '360px'
           }}
         >
           <div
-            className={`alert alert-${toast.type} alert-dismissible shadow`}
+            className={`alert alert-${toast.type} alert-dismissible shadow-lg`}
             role="alert"
           >
             <strong>
-              {toast.type === 'warning' ? 'Atención' : 'Error'}
+              {toast.type === 'warning' ? '⚠️ Atención' : '❌ Error'}
             </strong>
 
             <div>{toast.message}</div>
@@ -207,106 +210,149 @@ export default function LoginPage() {
         </div>
       )}
 
-      <div className="login-card">
-        <Link to="/" className="text-decoration-none text-muted small">
-          ← Volver al portal
-        </Link>
+      <div className="login-container-modern">
+        <div className="login-card-modern">
+          <Link to="/" className="back-link-modern">
+            <i className="bi bi-arrow-left me-2" />
+            Volver al portal
+          </Link>
 
-        <div className="login-brand">
-          <BrandLogo />
-        </div>
+          <div className="login-header-modern">
+            <div className="login-brand-modern">
+              <BrandLogo />
+            </div>
 
-        <div className="mt-4 d-flex align-items-start justify-content-between gap-3">
-          <div>
-            <span className="badge rounded-pill bg-primary-subtle text-primary mb-2">
-              Panel seguro
-            </span>
-            <h2 className="fw-bold mb-1">Ingreso CMS</h2>
-          </div>
-
-          <div className="text-end text-muted small">
-            <i className="bi bi-shield-lock-fill text-success me-1" />
-            RBAC activo
-          </div>
-        </div>
-
-        <p className="text-muted">
-          Accede con tu usuario asignado.
-        </p>
-
-        {failedAttempts > 0 && !isBlocked && (
-          <div className="alert alert-info">
-            Intentos fallidos: {failedAttempts} de 3
-          </div>
-        )}
-
-        {isBlocked && (
-          <div className="alert alert-warning">
-            Cuenta bloqueada temporalmente. Intenta nuevamente en{' '}
-            <strong>{blockedSeconds}</strong> segundo(s).
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Usuario</label>
-
-            <input
-              type="text"
-              name="username"
-              className="form-control"
-              value={form.username}
-              onChange={handleChange}
-              placeholder="username"
-              disabled={isBlocked}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Contraseña</label>
-
-            <div className="input-group">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                className="form-control"
-                value={form.password}
-                onChange={handleChange}
-                placeholder="********"
-                disabled={isBlocked}
-                required
-              />
-
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={() => setShowPassword((prev) => !prev)}
-                disabled={isBlocked}
-                aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
-              >
-                <i className={`bi ${showPassword ? 'bi-eye-slash' : 'bi-eye'}`} />
-              </button>
+            <div className="login-title-section">
+              <div className="d-flex align-items-center gap-3 mb-2">
+                <span className="badge-modern">
+                  <i className="bi bi-shield-check-fill me-1" />
+                  Panel Seguro
+                </span>
+                <span className="badge-modern badge-success">
+                  <i className="bi bi-lock-fill me-1" />
+                  RBAC Activo
+                </span>
+              </div>
+              <h1 className="login-title-modern">Ingreso CMS</h1>
+              <p className="login-subtitle-modern">
+                Accede con tu usuario asignado al sistema
+              </p>
             </div>
           </div>
 
-          <button
-            className="btn btn-primary w-100"
-            disabled={loading || isBlocked}
-          >
-            {isBlocked
-              ? `Bloqueado ${blockedSeconds}s`
-              : loading
-                ? 'Ingresando...'
-                : 'Ingresar'}
-          </button>
+          {failedAttempts > 0 && !isBlocked && (
+            <div className="alert alert-info d-flex align-items-center gap-2">
+              <i className="bi bi-info-circle-fill" />
+              <span>
+                <strong>Intentos fallidos:</strong> {failedAttempts} de 3
+              </span>
+            </div>
+          )}
 
-          <div className="text-center mt-3">
-            <Link to="/admin/forgot-password">
-              ¿Olvidaste tu contraseña?
-            </Link>
+          {isBlocked && (
+            <div className="alert alert-warning d-flex align-items-center gap-2">
+              <i className="bi bi-exclamation-triangle-fill" />
+              <span>
+                Cuenta bloqueada temporalmente. Intenta en{' '}
+                <strong className="text-danger">{blockedSeconds}s</strong>
+              </span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="login-form-modern">
+            <div className="form-group-modern">
+              <label className="form-label-modern">
+                <i className="bi bi-person-fill me-2" />
+                Usuario
+              </label>
+              <input
+                type="text"
+                name="username"
+                className="form-input-modern"
+                value={form.username}
+                onChange={handleChange}
+                placeholder="Ingresa tu usuario"
+                disabled={isBlocked}
+                required
+                autoComplete="username"
+              />
+            </div>
+
+            <div className="form-group-modern">
+              <label className="form-label-modern">
+                <i className="bi bi-key-fill me-2" />
+                Contraseña
+              </label>
+              <div className="password-input-wrapper">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  className="form-input-modern"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="Ingresa tu contraseña"
+                  disabled={isBlocked}
+                  required
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  disabled={isBlocked}
+                  aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                >
+                  <i className={`bi ${showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'}`} />
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="btn-submit-modern"
+              disabled={loading || isBlocked}
+            >
+              {isBlocked ? (
+                <>
+                  <i className="bi bi-hourglass-split me-2" />
+                  Bloqueado {blockedSeconds}s
+                </>
+              ) : loading ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" />
+                  Ingresando...
+                </>
+              ) : (
+                <>
+                  <i className="bi bi-box-arrow-in-right me-2" />
+                  Ingresar al Sistema
+                </>
+              )}
+            </button>
+
+            <div className="login-footer-modern">
+              <Link to="/admin/forgot-password" className="forgot-link-modern">
+                <i className="bi bi-question-circle me-1" />
+                ¿Olvidaste tu contraseña?
+              </Link>
+            </div>
+          </form>
+
+          <div className="login-info-modern">
+            <div className="info-item">
+              <i className="bi bi-shield-lock-fill text-success" />
+              <span>Conexión segura SSL</span>
+            </div>
+            <div className="info-item">
+              <i className="bi bi-clock-history text-primary" />
+              <span>Sesión de 60 minutos</span>
+            </div>
+            <div className="info-item">
+              <i className="bi bi-shield-check text-info" />
+              <span>Protección anti fuerza bruta</span>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </main>
   );

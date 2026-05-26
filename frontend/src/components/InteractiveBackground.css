@@ -1,0 +1,137 @@
+.interactive-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-shape {
+  position: absolute;
+  bottom: -100px;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  animation: float-up linear infinite;
+  will-change: transform;
+}
+
+.floating-shape:hover {
+  opacity: 1;
+  transform: scale(1.2) !important;
+}
+
+@keyframes float-up {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    bottom: 110vh;
+    opacity: 0;
+  }
+}
+
+/* Formas */
+.shape-circle {
+  border-radius: 50%;
+}
+
+.shape-square {
+  border-radius: 8px;
+}
+
+.shape-triangle {
+  width: 0 !important;
+  height: 0 !important;
+  background-color: transparent !important;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid;
+}
+
+.shape-star {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.shape-heart {
+  position: relative;
+}
+
+.shape-heart::before,
+.shape-heart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 80%;
+  border-radius: 50% 50% 0 0;
+  background-color: inherit;
+}
+
+.shape-heart::before {
+  left: 0;
+  transform: rotate(-45deg);
+  transform-origin: 100% 100%;
+}
+
+.shape-heart::after {
+  right: 0;
+  transform: rotate(45deg);
+  transform-origin: 0% 100%;
+}
+
+/* Explosión */
+.explosion {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.explosion-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: rotate(var(--rotation, 0deg)) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--rotation, 0deg)) translateY(-80px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Asegurar que no interfiera con botones */
+.interactive-background ~ * {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}

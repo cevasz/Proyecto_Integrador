@@ -715,3 +715,135 @@
     @apply order-none;
   }
 }
+
+/* ========================================
+   LOGIN PAGE MODERN STYLES
+======================================== */
+
+.login-page-modern {
+  @apply relative min-h-screen overflow-hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-container-modern {
+  @apply relative z-10 flex min-h-screen items-center justify-center p-4;
+}
+
+.login-card-modern {
+  @apply w-full max-w-md rounded-3xl bg-white/95 p-8 shadow-2xl backdrop-blur-xl;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-link-modern {
+  @apply mb-6 inline-flex items-center text-sm font-semibold text-slate-600 no-underline transition hover:text-brand-plum;
+}
+
+.login-header-modern {
+  @apply mb-8;
+}
+
+.login-brand-modern {
+  @apply mb-6 flex justify-center;
+}
+
+.login-title-section {
+  @apply text-center;
+}
+
+.badge-modern {
+  @apply inline-flex items-center rounded-full bg-gradient-to-r from-brand-plum to-brand-magenta px-3 py-1 text-xs font-bold text-white shadow-md;
+}
+
+.badge-modern.badge-success {
+  @apply from-emerald-500 to-teal-500;
+}
+
+.login-title-modern {
+  @apply mb-2 bg-gradient-to-r from-brand-plum via-brand-magenta to-brand-cyan bg-clip-text text-3xl font-black text-transparent;
+}
+
+.login-subtitle-modern {
+  @apply text-sm text-slate-600;
+}
+
+.login-form-modern {
+  @apply space-y-5;
+}
+
+.form-group-modern {
+  @apply space-y-2;
+}
+
+.form-label-modern {
+  @apply flex items-center text-sm font-bold text-slate-700;
+}
+
+.form-input-modern {
+  @apply w-full rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 text-slate-800 transition focus:border-brand-cyan focus:outline-none focus:ring-4 focus:ring-brand-cyan/20;
+}
+
+.form-input-modern:disabled {
+  @apply cursor-not-allowed bg-slate-100 text-slate-400;
+}
+
+.password-input-wrapper {
+  @apply relative;
+}
+
+.password-toggle-btn {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-brand-plum;
+}
+
+.password-toggle-btn:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.btn-submit-modern {
+  @apply mt-6 flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-brand-plum via-brand-magenta to-brand-cyan px-6 py-4 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
+}
+
+.login-footer-modern {
+  @apply mt-4 text-center;
+}
+
+.forgot-link-modern {
+  @apply inline-flex items-center text-sm font-semibold text-brand-plum no-underline transition hover:text-brand-magenta;
+}
+
+.login-info-modern {
+  @apply mt-8 flex flex-wrap items-center justify-center gap-4 border-t border-slate-200 pt-6;
+}
+
+.login-info-modern .info-item {
+  @apply flex items-center gap-2 text-xs text-slate-600;
+}
+
+.login-info-modern .info-item i {
+  @apply text-base;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .login-card-modern {
+    @apply p-6;
+  }
+
+  .login-title-modern {
+    @apply text-2xl;
+  }
+
+  .login-info-modern {
+    @apply flex-col gap-2;
+  }
+}
