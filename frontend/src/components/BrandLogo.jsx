@@ -1,4 +1,4 @@
-import latinoamericaLogo from '../assets/cms/latinoamerica-comparte.jpeg';
+import latinoamericaLogo from '../assets/cms/logo-latinoamerica-comparte.jpeg';
 
 export default function BrandLogo({
   className = '',

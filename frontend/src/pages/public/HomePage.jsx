@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import argentinaLogo from '../../assets/cms/argentina-comparte.jpeg';
-import chileLogo from '../../assets/cms/chile-comparte.jpeg';
-import ecuadorLogo from '../../assets/cms/ecuador-comparte.jpeg';
-import portalReference from '../../assets/cms/portal-referencia.jpeg';
+import argentinaLogo from '../../assets/cms/argentina-portada.jpeg';
+import chileLogo from '../../assets/cms/chile-portada.jpeg';
+import ecuadorLogo from '../../assets/cms/ecuador-portada.jpeg';
+import portalReference from '../../assets/cms/portal-regional-portada.jpeg';
 import BrandLogo from '../../components/BrandLogo';
 
 const countries = [
