@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+    <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+    <rect width="100%" height="100%" fill="#F8FAFC"/>
+    <text x="600.0" y="36" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#17324D">Casos de Uso del MVP</text>
+    
+    <circle cx="80" cy="95" r="16" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="111" x2="80" y2="157" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="52" y1="129" x2="108" y2="129" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="157" x2="56" y2="190" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="157" x2="104" y2="190" stroke="#1F4E79" stroke-width="2"/>
+    <text x="80" y="215" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#17324D">Visitante</text>
+    
+    <circle cx="80" cy="275" r="16" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="291" x2="80" y2="337" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="52" y1="309" x2="108" y2="309" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="337" x2="56" y2="370" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="337" x2="104" y2="370" stroke="#1F4E79" stroke-width="2"/>
+    <text x="80" y="395" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#17324D">Editor</text>
+    
+    <circle cx="80" cy="455" r="16" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="471" x2="80" y2="517" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="52" y1="489" x2="108" y2="489" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="517" x2="56" y2="550" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="517" x2="104" y2="550" stroke="#1F4E79" stroke-width="2"/>
+    <text x="80" y="575" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#17324D">Admin Pais</text>
+    
+    <circle cx="80" cy="595" r="16" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="611" x2="80" y2="657" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="52" y1="629" x2="108" y2="629" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="657" x2="56" y2="690" stroke="#1F4E79" stroke-width="2"/>
+    <line x1="80" y1="657" x2="104" y2="690" stroke="#1F4E79" stroke-width="2"/>
+    <text x="80" y="715" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#17324D">Superadmin</text>
+    <rect x="230" y="70" width="880" height="640" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/><ellipse cx="380" cy="130" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="380" y="135" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Consultar noticias</text><ellipse cx="610" cy="130" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="610" y="135" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Consultar testimonios</text><ellipse cx="840" cy="130" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="840" y="135" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Enviar solicitud</text><ellipse cx="380" cy="290" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="380" y="295" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Iniciar sesion</text><ellipse cx="610" cy="290" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="610" y="295" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Gestionar noticias</text><ellipse cx="840" cy="290" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="840" y="295" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Gestionar testimonios</text><ellipse cx="380" cy="470" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="380" y="475" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Gestionar solicitudes</text><ellipse cx="610" cy="470" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="610" y="475" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Gestionar usuarios</text><ellipse cx="840" cy="470" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="840" y="475" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Consultar auditoria</text><ellipse cx="610" cy="620" rx="95" ry="36" fill="#EAF2F8" stroke="#1F4E79" stroke-width="2"/><text x="610" y="625" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#17324D">Gestionar perfil</text><line x1="125" y1="110" x2="285" y2="130" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="110" x2="515" y2="130" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="110" x2="745" y2="130" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="290" x2="285" y2="290" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="290" x2="515" y2="290" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="290" x2="745" y2="290" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="470" x2="285" y2="470" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="470" x2="515" y2="290" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="470" x2="745" y2="470" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="610" x2="515" y2="470" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="610" x2="745" y2="470" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/><line x1="125" y1="610" x2="515" y2="620" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/></svg>
