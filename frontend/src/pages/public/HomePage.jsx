@@ -5,6 +5,7 @@ import chileLogo from '../../assets/cms/chile-portada.jpeg';
 import ecuadorLogo from '../../assets/cms/ecuador-portada.jpeg';
 import portalReference from '../../assets/cms/portal-regional-portada.jpeg';
 import BrandLogo from '../../components/BrandLogo';
+import InteractiveBackground from '../../components/InteractiveBackground';
 
 const countries = [
   {
@@ -33,12 +34,8 @@ export default function HomePage() {
   }
 
   return (
-    <section
-      className="public-hero"
-      style={{
-        '--hero-image': `url(${portalReference})`
-      }}
-    >
+    <section className="public-hero-modern">
+      <InteractiveBackground />
       <div className="public-hero-overlay">
         <div className="public-hero-content">
           <span className="public-badge">

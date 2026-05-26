@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import BrandLogo from '../../components/BrandLogo';
-import InteractiveBackground from '../../components/InteractiveBackground';
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -180,8 +179,6 @@ export default function LoginPage() {
 
   return (
     <main className="login-page-modern">
-      <InteractiveBackground />
-      
       {toast.show && (
         <div
           className="position-fixed top-0 end-0 p-3"

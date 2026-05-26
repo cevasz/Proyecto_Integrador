@@ -156,6 +156,16 @@
     @apply pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-brand-canvas to-transparent content-[''];
   }
 
+  /* HomePage con fondo interactivo moderno */
+  .public-hero-modern {
+    @apply relative min-h-[calc(100vh-76px)] overflow-hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+
+  .public-hero-modern::after {
+    @apply pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-brand-canvas to-transparent content-[''];
+  }
+
   .public-hero-overlay {
     @apply relative z-10 grid min-h-[calc(100vh-76px)] place-items-center px-5 py-12 lg:px-[7%];
   }
@@ -182,19 +192,19 @@
   }
 
   .country-card {
-    @apply flex min-h-40 w-36 flex-col items-center justify-center overflow-hidden rounded-[1.5rem] bg-white/95 p-4 text-center text-brand-ink no-underline shadow-lift ring-1 ring-white/70 backdrop-blur transition duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:text-brand-plum hover:shadow-2xl;
+    @apply flex min-h-52 w-44 flex-col items-center justify-center overflow-hidden rounded-[1.5rem] bg-white/95 p-5 text-center text-brand-ink no-underline shadow-lift ring-1 ring-white/70 backdrop-blur transition duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:text-brand-plum hover:shadow-2xl;
   }
 
   .country-card strong {
-    @apply text-xl font-black leading-none;
+    @apply text-2xl font-black leading-none;
   }
 
   .country-card span {
-    @apply mt-1 max-w-full text-sm font-extrabold leading-tight;
+    @apply mt-2 max-w-full text-base font-extrabold leading-tight;
   }
 
   .country-logo-crop {
-    @apply mb-3 grid h-[72px] w-[72px] place-items-center overflow-hidden rounded-2xl bg-white shadow-inner ring-1 ring-slate-200;
+    @apply mb-3 grid h-[96px] w-[96px] place-items-center overflow-hidden rounded-2xl bg-white shadow-inner ring-1 ring-slate-200;
   }
 
   .country-logo-crop img {
@@ -204,11 +214,11 @@
   }
 
   .country-main {
-    @apply min-h-44 w-44 bg-gradient-to-b from-white to-sky-50;
+    @apply min-h-56 w-48 bg-gradient-to-b from-white to-sky-50;
   }
 
   .country-main .brand-logo-mark {
-    @apply mb-3 h-24 w-24 rounded-[1.75rem];
+    @apply mb-3 h-28 w-28 rounded-[1.75rem];
   }
 
   .public-description {
