@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { getPublicNoticias } from '../../services/publicService';
+import { getNewsImage } from '../../utils/newsImages';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -123,12 +124,15 @@ export default function PublicNoticiasPage() {
         ) : (
           <>
             <div className="public-news-grid">
-              {paginatedNoticias.map((noticia) => (
+              {paginatedNoticias.map((noticia) => {
+                const localImage = getNewsImage(noticia.slug);
+                
+                return (
                 <article key={noticia.id} className="public-news-card">
                   <div className="public-news-image">
-                    {noticia.imagen_principal_url ? (
+                    {localImage || noticia.imagen_principal_url ? (
                       <img
-                        src={noticia.imagen_principal_url}
+                        src={localImage || noticia.imagen_principal_url}
                         alt={noticia.titulo}
                       />
                     ) : (
@@ -139,22 +143,36 @@ export default function PublicNoticiasPage() {
                   </div>
 
                   <div className="public-news-body">
-                    <span className="public-news-badge">
-                      {noticia.pais?.nombre || formatCountryName(paisSlug)}
-                    </span>
+                    <div className="d-flex align-items-center justify-content-between mb-3">
+                      <span className="public-news-badge">
+                        {noticia.pais?.nombre || formatCountryName(paisSlug)}
+                      </span>
+                      
+                      {noticia.fecha_publicacion && (
+                        <div className="public-news-date">
+                          <i className="bi bi-calendar3 me-1" />
+                          <span>
+                            {new Date(noticia.fecha_publicacion).toLocaleDateString('es-ES', {
+                              day: '2-digit',
+                              month: 'short',
+                              year: 'numeric'
+                            })}
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
                     <h3>{noticia.titulo}</h3>
 
                     <p>{noticia.resumen}</p>
 
                     <div className="public-news-footer">
-                      <small>
-                        {noticia.fecha_publicacion
-                          ? new Date(
-                              noticia.fecha_publicacion
-                            ).toLocaleDateString()
-                          : 'Publicado'}
-                      </small>
+                      <div className="public-news-meta">
+                        <i className="bi bi-person-circle me-1" />
+                        <small>
+                          {noticia.autor?.nombre || 'Redacción'} {noticia.autor?.apellido || ''}
+                        </small>
+                      </div>
 
                       <Link
                         to={`/paises/${paisSlug}/noticias/${noticia.slug}`}
@@ -166,7 +184,7 @@ export default function PublicNoticiasPage() {
                     </div>
                   </div>
                 </article>
-              ))}
+              )})}
             </div>
 
             <div className="d-flex justify-content-center mt-5">

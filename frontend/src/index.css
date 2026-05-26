@@ -391,6 +391,22 @@
     @apply mb-3 inline-flex w-fit rounded-full bg-brand-cyan/10 px-3 py-1 text-xs font-black uppercase tracking-[0.10em] text-brand-cyan;
   }
 
+  .public-news-date {
+    @apply inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600;
+  }
+
+  .public-news-date i {
+    @apply text-brand-coral;
+  }
+
+  .public-news-meta {
+    @apply inline-flex items-center text-slate-500;
+  }
+
+  .public-news-meta i {
+    @apply text-brand-plum;
+  }
+
   .public-news-body h3 {
     @apply text-balance text-xl font-black leading-tight text-brand-ink;
   }
