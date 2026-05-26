@@ -27,6 +27,7 @@ async function createSuperAdmin() {
 
   const rol = roles[0];
 
+  // Eliminar superadmin existente si existe
   const { data: existingUsers, error: existingError } = await supabaseAdmin
     .from('usuarios')
     .select('id, username')
@@ -39,14 +40,39 @@ async function createSuperAdmin() {
   }
 
   if (existingUsers.length > 0) {
-    console.log('El usuario superadmin ya existe.');
-    return;
+    console.log('Eliminando superadmin existente...');
+    
+    // Primero eliminar registros de auditoría
+    const userId = existingUsers[0].id;
+    const { error: auditDeleteError } = await supabaseAdmin
+      .from('bitacora_auditoria')
+      .delete()
+      .eq('usuario_id', userId);
+
+    if (auditDeleteError) {
+      console.log('Advertencia al eliminar auditoría:', auditDeleteError.message);
+    } else {
+      console.log('Registros de auditoría eliminados.');
+    }
+
+    // Luego eliminar el usuario
+    const { error: deleteError } = await supabaseAdmin
+      .from('usuarios')
+      .delete()
+      .eq('username', username);
+
+    if (deleteError) {
+      console.error('Error eliminando superadmin:', deleteError.message);
+      return;
+    }
+    console.log('Superadmin existente eliminado.');
   }
 
+  // Crear nuevo superadmin
   const { error } = await supabaseAdmin.from('usuarios').insert([
     {
-      nombre: 'Sergio',
-      apellido: 'Puerto',
+      nombre: 'Juan',
+      apellido: 'Sebastian',
       email: 'superadmin@demo.com',
       username,
       password_hash: passwordHash,
@@ -61,9 +87,11 @@ async function createSuperAdmin() {
     return;
   }
 
-  console.log('Superadmin creado correctamente');
-  console.log('Usuario:', username);
-  console.log('Contraseña:', password);
+  console.log('✅ Superadmin creado correctamente');
+  console.log('👤 Usuario:', username);
+  console.log('🔑 Contraseña:', password);
+  console.log('📧 Email:', 'superadmin@demo.com');
+  console.log('👑 Rol: superadmin');
 }
 
 createSuperAdmin();
