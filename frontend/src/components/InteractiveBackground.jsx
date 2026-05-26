@@ -69,9 +69,10 @@ export default function InteractiveBackground() {
   }
 
   function handleShapeClick(shape, event) {
+    event.preventDefault();
     event.stopPropagation();
     
-    // Crear explosión
+    // Crear explosión en la posición exacta del clic
     const rect = event.currentTarget.getBoundingClientRect();
     const explosion = {
       id: explosionIdRef.current++,
@@ -82,7 +83,7 @@ export default function InteractiveBackground() {
 
     setExplosions((prev) => [...prev, explosion]);
 
-    // Eliminar la figura
+    // Eliminar la figura inmediatamente
     setShapes((prev) => prev.filter((s) => s.id !== shape.id));
   }
 
