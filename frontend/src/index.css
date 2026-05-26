@@ -201,21 +201,34 @@
   }
 
   .country-selector {
-    @apply mx-auto my-10 flex flex-wrap items-center justify-center gap-5;
+    @apply mx-auto my-12 flex flex-wrap items-center justify-center gap-6;
+    perspective: 1000px;
   }
 
   .country-card {
-    @apply flex min-h-52 w-44 flex-col items-center justify-center overflow-hidden rounded-[1.5rem] bg-white p-5 text-center text-brand-ink no-underline ring-1 ring-white/70 backdrop-blur transition-all duration-300 hover:-translate-y-3 hover:scale-105 hover:text-brand-plum;
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    @apply flex min-h-56 w-48 flex-col items-center justify-center overflow-hidden rounded-[1.75rem] bg-white p-6 text-center text-brand-ink no-underline ring-2 ring-white/80 backdrop-blur transition-all duration-300 hover:-translate-y-3 hover:scale-105 hover:text-brand-plum;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    box-shadow: 
+      0 18px 40px rgba(0, 0, 0, 0.25),
+      0 8px 16px rgba(135, 0, 127, 0.15);
   }
 
   .country-card:hover {
-    box-shadow: 0 28px 65px rgba(135, 0, 127, 0.35);
+    box-shadow: 
+      0 28px 65px rgba(135, 0, 127, 0.35),
+      0 12px 24px rgba(194, 24, 135, 0.25);
+  }
+
+  .country-card:hover .country-logo-crop {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 
+      0 8px 20px rgba(0, 0, 0, 0.2),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
   }
 
   .country-card strong {
     @apply text-2xl font-black leading-none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
   .country-card span {
@@ -223,22 +236,71 @@
   }
 
   .country-logo-crop {
-    @apply mb-3 grid h-[96px] w-[96px] place-items-center overflow-hidden rounded-2xl bg-white shadow-inner ring-1 ring-slate-200;
+    @apply mb-3 grid h-[100px] w-[100px] place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.9);
   }
 
   .country-logo-crop img {
-    @apply h-full w-full object-cover;
-    transform: scale(1.9);
-    transform-origin: 50% 24%;
+    @apply h-full w-full;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: scale(2.2);
+    filter: brightness(1.05) contrast(1.1) saturate(1.15);
+  }
+
+  /* Ajustes específicos por país para mejor visualización */
+  .country-card:nth-child(1) .country-logo-crop img {
+    /* Ecuador */
+    object-position: center 35%;
+    transform: scale(2.3);
+  }
+
+  .country-card:nth-child(2) .country-logo-crop img {
+    /* Argentina */
+    object-position: center 28%;
+    transform: scale(2.1);
+  }
+
+  .country-card:nth-child(4) .country-logo-crop img {
+    /* Chile */
+    object-position: center 32%;
+    transform: scale(2.2);
   }
 
   .country-main {
-    @apply min-h-60 w-52 bg-gradient-to-b from-white to-sky-50;
+    @apply min-h-64 w-56 bg-gradient-to-br from-white via-sky-50 to-blue-50;
     order: 2;
+    box-shadow: 
+      0 22px 50px rgba(0, 0, 0, 0.3),
+      0 10px 20px rgba(13, 110, 253, 0.2);
+  }
+
+  .country-main:hover {
+    box-shadow: 
+      0 32px 75px rgba(13, 110, 253, 0.4),
+      0 15px 30px rgba(135, 0, 127, 0.3);
   }
 
   .country-main .brand-logo-mark {
-    @apply mb-3 h-32 w-32 rounded-[1.75rem];
+    @apply mb-4 h-36 w-36 rounded-[2rem];
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .country-main:hover .brand-logo-mark {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  .country-main strong {
+    @apply text-3xl;
+  }
+
+  .country-main span {
+    @apply text-lg;
   }
 
   .public-description {
