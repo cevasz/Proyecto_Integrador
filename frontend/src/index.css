@@ -122,11 +122,17 @@
   }
 
   .public-navbar {
-    @apply sticky top-0 z-50 flex min-h-[76px] items-center justify-between gap-5 border-b border-slate-200/80 bg-white/90 px-5 py-3 shadow-sm backdrop-blur-xl lg:px-[7%];
+    @apply sticky top-0 z-50 flex min-h-[76px] items-center justify-between gap-5 border-b border-white/20 px-5 py-3 backdrop-blur-xl lg:px-[7%];
+    background: linear-gradient(90deg, #87007f, #c21887);
+    box-shadow: 0 4px 20px rgba(135, 0, 127, 0.25);
   }
 
   .public-logo {
-    @apply inline-flex max-w-[min(340px,72vw)] items-center text-brand-ink no-underline transition hover:text-brand-plum;
+    @apply inline-flex max-w-[min(340px,72vw)] items-center text-white no-underline transition hover:opacity-90;
+  }
+
+  .public-logo .brand-logo-text {
+    @apply text-white;
   }
 
   .public-menu {
@@ -134,15 +140,15 @@
   }
 
   .public-menu a {
-    @apply rounded-full px-4 py-2 text-sm font-extrabold text-slate-700 no-underline transition hover:bg-slate-100 hover:text-brand-plum;
+    @apply rounded-full px-4 py-2 text-sm font-extrabold text-white/90 no-underline transition hover:bg-white/15 hover:text-white;
   }
 
   .public-menu a.active {
-    @apply bg-brand-plum text-white shadow-md shadow-brand-plum/20 hover:bg-brand-plum hover:text-white;
+    @apply bg-white/20 text-white shadow-md shadow-black/10 hover:bg-white/25 hover:text-white;
   }
 
   .public-login-btn {
-    @apply !bg-brand-coral/15 !text-brand-plum hover:!bg-brand-coral hover:!text-white;
+    @apply !bg-white !text-brand-plum hover:!bg-white/90 hover:!text-brand-magenta;
   }
 
   .public-hero {
@@ -159,7 +165,13 @@
   /* HomePage con fondo interactivo moderno */
   .public-hero-modern {
     @apply relative min-h-[calc(100vh-76px)] overflow-hidden;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #87007f 0%, #c21887 50%, #0d6efd 100%);
+  }
+
+  .public-hero-modern::before {
+    @apply pointer-events-none absolute inset-0 content-[''];
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.10), transparent 40%);
   }
 
   .public-hero-modern::after {
@@ -176,7 +188,8 @@
 
   .public-badge,
   .public-detail-badge {
-    @apply inline-flex rounded-full border border-white/30 bg-white/20 px-5 py-2 text-xs font-black uppercase tracking-[0.16em] text-white shadow-sm backdrop-blur-md;
+    @apply inline-flex rounded-full border border-white/30 bg-white/20 px-5 py-2 text-xs font-black uppercase tracking-[0.16em] text-white backdrop-blur-md;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   .public-hero h1 {
@@ -192,7 +205,13 @@
   }
 
   .country-card {
-    @apply flex min-h-52 w-44 flex-col items-center justify-center overflow-hidden rounded-[1.5rem] bg-white/95 p-5 text-center text-brand-ink no-underline shadow-lift ring-1 ring-white/70 backdrop-blur transition duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:text-brand-plum hover:shadow-2xl;
+    @apply flex min-h-52 w-44 flex-col items-center justify-center overflow-hidden rounded-[1.5rem] bg-white p-5 text-center text-brand-ink no-underline ring-1 ring-white/70 backdrop-blur transition-all duration-300 hover:-translate-y-3 hover:scale-105 hover:text-brand-plum;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .country-card:hover {
+    box-shadow: 0 28px 65px rgba(135, 0, 127, 0.35);
   }
 
   .country-card strong {
@@ -214,11 +233,12 @@
   }
 
   .country-main {
-    @apply min-h-56 w-48 bg-gradient-to-b from-white to-sky-50;
+    @apply min-h-60 w-52 bg-gradient-to-b from-white to-sky-50;
+    order: 2;
   }
 
   .country-main .brand-logo-mark {
-    @apply mb-3 h-28 w-28 rounded-[1.75rem];
+    @apply mb-3 h-32 w-32 rounded-[1.75rem];
   }
 
   .public-description {
@@ -226,7 +246,16 @@
   }
 
   .public-actions {
-    @apply mt-8 flex flex-wrap justify-center gap-3;
+    @apply mt-8 flex flex-wrap justify-center gap-4;
+  }
+
+  .public-actions .btn {
+    @apply px-6 py-3 text-base transition-all duration-300 hover:-translate-y-1;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .public-actions .btn:hover {
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.3);
   }
 
   .public-page,
@@ -277,7 +306,11 @@
   }
 
   .public-news-card {
-    @apply overflow-hidden rounded-[1.6rem] bg-white shadow-soft ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-lift;
+    @apply overflow-hidden rounded-[1.6rem] bg-white shadow-soft ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-2;
+  }
+
+  .public-news-card:hover {
+    box-shadow: 0 24px 55px rgba(23, 12, 46, 0.16);
   }
 
   .public-news-image {
@@ -495,7 +528,12 @@
 
   .dashboard-card,
   .metric-card {
-    @apply h-full rounded-[1.5rem] bg-white p-6 shadow-soft ring-1 ring-slate-200/80 transition duration-200 hover:-translate-y-1 hover:shadow-lift;
+    @apply h-full rounded-[1.5rem] bg-white p-6 shadow-soft ring-1 ring-slate-200/80 transition-all duration-200 hover:-translate-y-1;
+  }
+
+  .dashboard-card:hover,
+  .metric-card:hover {
+    box-shadow: 0 16px 38px rgba(23, 12, 46, 0.12);
   }
 
   .dashboard-card-icon {

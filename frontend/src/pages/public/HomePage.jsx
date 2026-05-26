@@ -51,7 +51,7 @@ export default function HomePage() {
           </p>
 
           <div className="country-selector">
-            {countries.map((country) => (
+            {countries.slice(0, 2).map((country) => (
               <Link
                 key={country.slug}
                 to={`/paises/${country.slug}/noticias`}
@@ -76,6 +76,21 @@ export default function HomePage() {
               <strong>LC</strong>
               <span>Portal regional</span>
             </Link>
+
+            {countries.slice(2).map((country) => (
+              <Link
+                key={country.slug}
+                to={`/paises/${country.slug}/noticias`}
+                className="country-card"
+                onClick={() => saveCountry(country.slug)}
+              >
+                <span className="country-logo-crop" aria-hidden="true">
+                  <img src={country.image} alt="" />
+                </span>
+                <strong>{country.code}</strong>
+                <span>{country.name}</span>
+              </Link>
+            ))}
           </div>
 
           <p className="public-description">
